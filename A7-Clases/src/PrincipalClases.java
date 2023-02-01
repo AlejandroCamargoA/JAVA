@@ -18,5 +18,7 @@ public class PrincipalClases {
         else
             System.out.println("Color no una cadena vacia");
 
+        System.out.println("nasheeeeeeeeeeeeeeeeeeeeeeeeee");
+
     }
 }
