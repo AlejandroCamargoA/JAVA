@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/A1-Estructura_y_Variables/A1-Estructura_y_Variables.iml" filepath="$PROJECT_DIR$/A1-Estructura_y_Variables/A1-Estructura_y_Variables.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A2-Conjuntos/A2-Conjuntos.iml" filepath="$PROJECT_DIR$/A2-Conjuntos/A2-Conjuntos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A4-Modularidad/A4-Modularidad.iml" filepath="$PROJECT_DIR$/A4-Modularidad/A4-Modularidad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A6-Modularidad/A6-Modularidad.iml" filepath="$PROJECT_DIR$/A6-Modularidad/A6-Modularidad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A7-Clases/A7-Clases.iml" filepath="$PROJECT_DIR$/A7-Clases/A7-Clases.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JAVA.iml" filepath="$PROJECT_DIR$/.idea/JAVA.iml" />
+    </modules>
+  </component>
+</project>
