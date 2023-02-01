@@ -50,4 +50,10 @@ public class Cflor {
 
 
     // M. Generales - Funcion - Comportamiento
+    public void mostrar(){
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Aroma: "+this.aroma);
+        System.out.println("Color: "+this.color);
+        System.out.println("Precio: S/ "+this.precio);
+    }
 }
