@@ -19,6 +19,25 @@ public class CCliente {
         Tipo = tipo;
     }
 
+    public CCliente(){
+        System.out.print("Ingrese El ID: ");
+        this.setIDCliente(FuncionesBasicas.leerEntero());
+        System.out.print("Ingrese los nombres: ");
+        this.setNombres(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese los apellidos: ");
+        this.setApellidos(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el tipo de documento: ");
+        this.setTipoDocumento(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el numero de documento: ");
+        this.setNumDocumento(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el correo: ");
+        this.setCorreo(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el estado: ");
+        this.setEstado(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el tipo: ");
+        this.setTipo(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+    }
+
     public int getIDCliente() {
         return IDCliente;
     }
@@ -81,5 +100,15 @@ public class CCliente {
 
     public void setTipo(String tipo) {
         Tipo = tipo;
+    }
+    public void mostrar(){
+        System.out.println("ID: "+this.IDCliente);
+        System.out.println("Nombres: "+this.Nombres);
+        System.out.println("Apellidos: "+this.Apellidos);
+        System.out.println("Tipo de Documento: "+this.TipoDocumento);
+        System.out.println("Numero de Documento: "+this.NumDocumento);
+        System.out.println("Correo: "+this.Correo);
+        System.out.println("Estado: "+this.Estado);
+        System.out.println("Tipo: "+this.Tipo);
     }
 }

@@ -42,4 +42,10 @@ public class FuncionesBasicas {
         texto = teclado.nextLine();
         return texto;
     }
+    public static String validarTamanyoString(String texto){
+        while (texto.length() < 20){
+            texto = texto + " ";
+        }
+        return texto;
+    }
 }

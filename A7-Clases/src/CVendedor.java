@@ -19,6 +19,25 @@ public class CVendedor {
         Estado = estado;
     }
 
+    public CVendedor(){
+        System.out.print("Ingrese El ID: ");
+        this.setIDVendedor(FuncionesBasicas.leerEntero());
+        System.out.print("Ingrese los nombres: ");
+        this.setNombres(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese los apellidos: ");
+        this.setApellidos(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el tipo de documento: ");
+        this.setTipoDocumento(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el numero de documento: ");
+        this.setNumDocumento(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el correo: ");
+        this.setCorreo(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese la contraseña: ");
+        this.setContrasenya(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+        System.out.print("Ingrese el estado: ");
+        this.setEstado(FuncionesBasicas.validarTamanyoString(FuncionesBasicas.leertexto()));
+    }
+
     public int getIDVendedor() {
         return IDVendedor;
     }
@@ -81,5 +100,16 @@ public class CVendedor {
 
     public void setEstado(String estado) {
         Estado = estado;
+    }
+
+    public void mostrar(){
+        System.out.println("ID: "+this.IDVendedor);
+        System.out.println("Nombres: "+this.Nombres);
+        System.out.println("Apellidos: "+this.Apellidos);
+        System.out.println("Tipo de Documento: "+this.TipoDocumento);
+        System.out.println("Numero de Documento: "+this.NumDocumento);
+        System.out.println("Correo: "+this.Correo);
+        System.out.println("Contraseña: "+this.Contrasenya);
+        System.out.println("Estado: "+this.Estado);
     }
 }

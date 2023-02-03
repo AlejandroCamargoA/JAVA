@@ -33,7 +33,6 @@ public class PrincipalConjuntos {
         }
         return union;
     }
-    public static int[] intersectarint[] A, int[] B
     public static int menu(){
         scan.escribirLinea("#########       MENU PRINCIPAL      #########");
         scan.escribirLinea("######### OPERACIONES CON CONJUNTOS #########");
