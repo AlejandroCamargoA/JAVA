@@ -4,6 +4,11 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class PrincipalClases {
+    public static int menuVentas(){
+        System.out.println("******* MENÚ VENTAS *******");
+        System.out.println("0- ");
+        return FuncionesBasicas.leerEntero();
+    }
 
     public static boolean confimarExistencia(String att1, String att2, List<Object> objetos){
         boolean flag = false;
@@ -116,7 +121,7 @@ public class PrincipalClases {
         if (obj instanceof CCliente){
             for (Object c: objetos) {
                 CCliente cl = (CCliente) c;
-                System.out.println(cl.getIDCliente()+"\t"+
+                System.out.println(
                         cl.getNombres()+"\t"+
                         cl.getApellidos()+"\t"+
                         cl.getTipoDocumento()+"\t"+
@@ -344,7 +349,7 @@ public class PrincipalClases {
         }
         if (obj instanceof CCliente){
             boolean flag = true;
-            CCliente clienteE = new CCliente(0,"","","","","","","");
+            CCliente clienteE = new CCliente("","","","","","","");
             for (Object c : objetos) {
                 CCliente cl = (CCliente) c;
                 if (cl.getNombres().equals(att1) && cl.getApellidos().equals(att2)) {
@@ -414,6 +419,11 @@ public class PrincipalClases {
         List<Object> vendedores = new ArrayList<Object>();
         List<CVenta> ventas = new ArrayList<CVenta>();
         List<CDetalleVenta> detalleVenta = new ArrayList<CDetalleVenta>();
+
+        clientes.add(new CCliente("000000001", "DNI", "Francisco", "Cardenas", "pancho@gmail.com", "activo", "regular"));
+        clientes.add(new CCliente("000000002", "RUC", "Julian", "Cardenas", "julian@gmail.com", "activo", "regular"));
+        clientes.add(new CCliente("000000003", "Carnet Extranjeria", "Lucia", "Sanchez", "pancho@gmail.com", "activo", "regular"));
+        clientes.add(new CCliente("000000004", "DNI", "Pedro", "Carrillo", "pancho@gmail.com", "activo", "regular"));
 
         int opcionPrincipal;
         do{
@@ -884,8 +894,79 @@ public class PrincipalClases {
                         }
                     }while (opcionvendedor != 0);
                     break;
-                case 4:
-                    System.out.println("...Menu en proceso...");
+                case 4: //Gestionar Ventas
+                    int opcionVentas;
+                    do {
+                        opcionVentas = menuVentas();
+                        switch (opcionVentas){
+                        case 0:
+                            System.out.println("Regresando al menu principal...");
+                            break;
+                        case 1: //registrar una venta
+                            String tipodedoc;
+                            do {
+                                System.out.println("Seleccione tipo de documento");
+                                System.out.println("(F) Factura     (B) Boleta       (*) Salir");
+                                tipodedoc = FuncionesBasicas.leertexto();
+
+                                switch (tipodedoc){
+                                    case "F":
+                                        System.out.println("GENERANDO FACTURA");
+                                        break;
+                                    case "B":
+                                        System.out.println("GENERANDO BOLETA DE PAGOS");
+                                        break;
+                                    default:
+                                        System.out.println("error...");
+                                        opcionVentas = 0;
+                                        break;
+                                }
+                            }while (tipodedoc.equals("F") || tipodedoc.equals("B"));
+
+                            System.out.println("Ingrese el numero del documento");
+                            String dniCliente = FuncionesBasicas.leertexto();
+
+                            if (clientes.indexOf(dniCliente) >= 0){
+                                System.out.println("cliente existe");
+                            }
+                            else {
+                                System.out.println("Cliente no existe");
+                                System.out.println("(N) nuevo DNI     (A) Agregar cliente      (*) Salir");
+                                String accion = FuncionesBasicas.leertexto();
+                                switch (accion){
+                                    case "N":
+                                        System.out.println("Ingrese el DNI del Cliente");
+                                        dniCliente = FuncionesBasicas.leertexto();
+                                        break;
+                                    case "A":
+                                        System.out.println("Registrando nuevo cliente");
+                                        CCliente cli = new CCliente();
+                                        clientes.add(cli);
+                                        break;
+                                }
+                            }
+                            System.out.println("Agregar flor a la venta");
+                            String agregarFlores;
+                            List<CFlor> florVendida = new ArrayList<CFlor>();
+                            do {
+                                System.out.println("(A) Agregar flor      (T) Terminar");
+                                agregarFlores = FuncionesBasicas.leertexto();
+                                mostrarTodo(flores);
+                                System.out.println("Seleccione flor para vender");
+                                int posflorVenta = FuncionesBasicas.leerEntero();
+                                CFlor f = (CFlor)flores.get(posflorVenta);
+                                florVendida.add(f);
+                            }while (agregarFlores.equals("A"));
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            break;
+                        }
+                    }while (opcionVentas != 0);
+
                     break;
                 case 5:
                     System.out.println("...Menu en proceso...");

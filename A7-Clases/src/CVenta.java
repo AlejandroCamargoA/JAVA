@@ -1,16 +1,16 @@
 import java.util.Date;
 
 public class CVenta {
-    private String IDVenta;
-    private String NroDocumento;
-    private String TipoDocumento;
-    private Date FechaVenta;
-    private int IDVendedor;
-    private int IDCliente;
-    private double PrecioTotal;
-    private double IGV;
-    private double Descuento;
-    private String Estado;
+    private String IDVenta; //Index de la lista
+    private String NroDocumento; //Factura - Boleta
+    private String TipoDocumento; //001-12093
+    private Date FechaVenta; //
+    private int IDVendedor; //
+    private int IDCliente; // DNI cliente
+    private double PrecioTotal; //Suma de precios unitarios   Detalle
+    private double IGV; //se calcula
+    private double Descuento; //descuento global
+    private String Estado; //activo
 
     public CVenta(String IDVenta, String nroDocumento, String tipoDocumento, Date fechaVenta, int IDVendedor, int IDCliente, double precioTotal, double IGV, double descuento, String estado) {
         this.IDVenta = IDVenta;
