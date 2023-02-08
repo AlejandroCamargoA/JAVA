@@ -1,12 +1,12 @@
 public class CDetalleVenta {
     private int IDDetalleVenta;
-    private int IDVenta;
-    private int IDProducto;
+    private String IDVenta;
+    private String IDProducto;
     private int Cantidad;
     private double descuento;
     private double precio;
 
-    public CDetalleVenta(int IDDetalleVenta, int IDVenta, int IDProducto, int cantidad, double descuento, double precio) {
+    public CDetalleVenta(int IDDetalleVenta, String IDVenta, String IDProducto, int cantidad, double descuento, double precio) {
         this.IDDetalleVenta = IDDetalleVenta;
         this.IDVenta = IDVenta;
         this.IDProducto = IDProducto;
@@ -23,19 +23,19 @@ public class CDetalleVenta {
         this.IDDetalleVenta = IDDetalleVenta;
     }
 
-    public int getIDVenta() {
+    public String getIDVenta() {
         return IDVenta;
     }
 
-    public void setIDVenta(int IDVenta) {
+    public void setIDVenta(String IDVenta) {
         this.IDVenta = IDVenta;
     }
 
-    public int getIDProducto() {
+    public String getIDProducto() {
         return IDProducto;
     }
 
-    public void setIDProducto(int IDProducto) {
+    public void setIDProducto(String IDProducto) {
         this.IDProducto = IDProducto;
     }
 
@@ -61,5 +61,23 @@ public class CDetalleVenta {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public void mostrar(){
+        System.out.println("idDetalleVenta: "+this.getIDDetalleVenta());
+        System.out.println("idVenta: "+this.IDVenta);
+        System.out.println("idProducto: "+this.IDProducto);
+        System.out.println("cantidad: "+this.Cantidad);
+        System.out.println("descuento: "+this.descuento);
+        System.out.println("precio: "+this.precio);
+    }
+
+    public void mostrarLista(){
+        System.out.print("\t"+this.getIDDetalleVenta());
+        System.out.print("\t"+this.IDVenta);
+        System.out.print("\t"+this.IDProducto);
+        System.out.print("\t"+this.Cantidad);
+        System.out.print("\t"+this.descuento);
+        System.out.print("\t"+this.precio);
     }
 }

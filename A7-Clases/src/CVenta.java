@@ -5,14 +5,14 @@ public class CVenta {
     private String NroDocumento; //Factura - Boleta
     private String TipoDocumento; //001-12093
     private Date FechaVenta; //
-    private int IDVendedor; //
-    private int IDCliente; // DNI cliente
+    private String IDVendedor; //
+    private String IDCliente; // DNI cliente
     private double PrecioTotal; //Suma de precios unitarios   Detalle
     private double IGV; //se calcula
     private double Descuento; //descuento global
     private String Estado; //activo
 
-    public CVenta(String IDVenta, String nroDocumento, String tipoDocumento, Date fechaVenta, int IDVendedor, int IDCliente, double precioTotal, double IGV, double descuento, String estado) {
+    public CVenta(String IDVenta, String tipoDocumento, String nroDocumento, Date fechaVenta, String IDVendedor, String IDCliente, double precioTotal, double IGV, double descuento, String estado) {
         this.IDVenta = IDVenta;
         NroDocumento = nroDocumento;
         TipoDocumento = tipoDocumento;
@@ -57,19 +57,19 @@ public class CVenta {
         FechaVenta = fechaVenta;
     }
 
-    public int getIDVendedor() {
+    public String getIDVendedor() {
         return IDVendedor;
     }
 
-    public void setIDVendedor(int IDVendedor) {
+    public void setIDVendedor(String IDVendedor) {
         this.IDVendedor = IDVendedor;
     }
 
-    public int getIDCliente() {
+    public String getIDCliente() {
         return IDCliente;
     }
 
-    public void setIDCliente(int IDCliente) {
+    public void setIDCliente(String IDCliente) {
         this.IDCliente = IDCliente;
     }
 
@@ -103,5 +103,18 @@ public class CVenta {
 
     public void setEstado(String estado) {
         Estado = estado;
+    }
+
+    public void mostrarLista(){
+        System.out.println("- idVenta: "+this.IDVenta);
+        System.out.println("- tipoDocumento: "+this.TipoDocumento);
+        System.out.println("- nroDocumento: "+this.NroDocumento);
+        System.out.println("- fechaVenta: "+this.FechaVenta);
+        System.out.println("- idVendedor: "+this.IDVendedor);
+        System.out.println("- idCliente: "+this.IDCliente);
+        System.out.println("- precioTotal: "+this.PrecioTotal);
+        System.out.println("- igv: "+this.IGV);
+        System.out.println("- descuento: "+this.Descuento);
+        System.out.println("- estado: "+this.Estado);
     }
 }

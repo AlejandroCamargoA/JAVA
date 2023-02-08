@@ -8,13 +8,13 @@ public class CCliente {
     private String Tipo;
 
     public CCliente(String numDocumento, String tipoDocumento, String nombres, String apellidos, String correo, String estado, String tipo) {
-        NumDocumento = numDocumento;
-        TipoDocumento = tipoDocumento;
-        Nombres = nombres;
-        Apellidos = apellidos;
-        Correo = correo;
-        Estado = estado;
-        Tipo = tipo;
+        NumDocumento = FuncionesBasicas.validarTamanyoString(numDocumento);
+        TipoDocumento = FuncionesBasicas.validarTamanyoString(tipoDocumento);
+        Nombres = FuncionesBasicas.validarTamanyoString(nombres);
+        Apellidos = FuncionesBasicas.validarTamanyoString(apellidos);
+        Correo = FuncionesBasicas.validarTamanyoString(correo);
+        Estado = FuncionesBasicas.validarTamanyoString(estado);
+        Tipo = FuncionesBasicas.validarTamanyoString(tipo);
     }
 
     public CCliente(){
