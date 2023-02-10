@@ -461,17 +461,6 @@ public class PrincipalClases {
     }
     public static void main(String[] args) {
 
-        flores.add(new CFlor("Rosa", "Roja", "Dulce", 15.0));
-        flores.add(new CFlor("Orquidea", "Roja", "Dulce Fuerte", 20.0));
-        flores.add(new CFlor("Petalo", "Morado", "Amargo", 30.0));
-        flores.add(new CFlor("Rosa", "Azul", "Dulce", 17.0));
-
-
-        clientes.add(new CCliente("000000001", "DNI", "Francisco", "Cardenas", "pancho@gmail.com", "activo", "regular"));
-        clientes.add(new CCliente("000000002", "RUC", "Julian", "Cardenas", "julian@gmail.com", "activo", "regular"));
-        clientes.add(new CCliente("000000003", "Carnet Extranjeria", "Lucia", "Sanchez", "pancho@gmail.com", "activo", "regular"));
-        clientes.add(new CCliente("000000004", "DNI", "Pedro", "Carrillo", "pancho@gmail.com", "activo", "regular"));
-
         int opcionPrincipal;
         do{
             menuPrincipal();

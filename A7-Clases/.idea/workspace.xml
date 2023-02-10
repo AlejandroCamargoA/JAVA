@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fdb5bc3-0a9e-4c8c-a553-0400ee4ecc81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A6-Modularidad/src/PrincipalConjuntos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A6-Modularidad/src/PrincipalConjuntos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2fdb5bc3-0a9e-4c8c-a553-0400ee4ecc81" name="Changes" comment="Terminado(prb) 3 menús">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A7-Clases/CVendedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A7-Clases/CVendedor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A7-Clases/Cflor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A7-Clases/Cflor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/A7-Clases/PrincipalClases.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/A7-Clases/PrincipalClases.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CVendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CVendedor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cflor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CFlor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FuncionesBasicas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FuncionesBasicas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PrincipalClases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PrincipalClases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +41,19 @@
       <option name="presentableId" value="Default" />
       <updated>1674252527522</updated>
     </task>
+    <task id="LOCAL-00001" summary="Terminado(prb) 3 menús">
+      <created>1675460553520</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675460553520</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Terminado(prb) 3 menús" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado(prb) 3 menús" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
