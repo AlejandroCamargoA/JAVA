@@ -80,4 +80,12 @@ public class CDetalleVenta {
         System.out.print("\t"+this.descuento);
         System.out.print("\t"+this.precio);
     }
+    public void mostrarCLista(){
+        System.out.print(PrincipalClases.validarATexto("" + this.IDDetalleVenta, 20));
+        System.out.print(PrincipalClases.validarATexto(this.IDVenta, 20));
+        System.out.print(PrincipalClases.validarATexto(this.IDProducto, 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.Cantidad, 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.descuento, 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.precio, 20));
+    }
 }

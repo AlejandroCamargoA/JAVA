@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class CVenta {
@@ -106,15 +107,35 @@ public class CVenta {
     }
 
     public void mostrarLista(){
-        System.out.println("- idVenta: "+this.IDVenta);
-        System.out.println("- tipoDocumento: "+this.TipoDocumento);
+        if (this.TipoDocumento.equals("B")){
+            System.out.println("- tipoDocumento: Boleta");
+        }else if (this.TipoDocumento.equals("F")){
+            System.out.println("- tipoDocumento: Factura");
+        }
         System.out.println("- nroDocumento: "+this.NroDocumento);
         System.out.println("- fechaVenta: "+this.FechaVenta);
         System.out.println("- idVendedor: "+this.IDVendedor);
         System.out.println("- idCliente: "+this.IDCliente);
         System.out.println("- precioTotal: "+this.PrecioTotal);
-        System.out.println("- igv: "+this.IGV);
+        DecimalFormat formato1 = new DecimalFormat("#.00");
+        System.out.println("- igv: "+formato1.format(this.IGV));
         System.out.println("- descuento: "+this.Descuento);
         System.out.println("- estado: "+this.Estado);
+    }
+    public void mostrarCLista(){
+        if (this.TipoDocumento.equals("B")){
+            System.out.print(PrincipalClases.validarATexto("Boleta", 20));
+        }else if (this.TipoDocumento.equals("F")){
+            System.out.print(PrincipalClases.validarATexto("Factura", 20));
+        }
+        System.out.print(PrincipalClases.validarATexto(this.NroDocumento, 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.FechaVenta, 30));
+        System.out.print(PrincipalClases.validarATexto(this.IDVendedor, 20));
+        System.out.print(PrincipalClases.validarATexto(this.IDCliente, 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.PrecioTotal, 20));
+        DecimalFormat formato1 = new DecimalFormat("#.00");
+        System.out.print(PrincipalClases.validarATexto(formato1.format(this.IGV), 20));
+        System.out.print(PrincipalClases.validarATexto("" + this.Descuento, 20));
+        System.out.print(PrincipalClases.validarATexto(this.Estado, 20));
     }
 }
