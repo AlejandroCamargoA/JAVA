@@ -121,6 +121,8 @@ public class CVenta {
         System.out.println("- igv: "+formato1.format(this.IGV));
         System.out.println("- descuento: "+this.Descuento);
         System.out.println("- estado: "+this.Estado);
+        double preciofinal = this.PrecioTotal + this.IGV - this.Descuento;
+        System.out.println("- precio final: " + preciofinal);
     }
     public void mostrarCLista(){
         if (this.TipoDocumento.equals("B")){

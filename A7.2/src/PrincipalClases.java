@@ -1015,14 +1015,17 @@ public class PrincipalClases {
             System.out.print(validarATexto("Fecha de la Venta",30));
             System.out.print(validarATexto("ID del Vendedor",20));
             System.out.print(validarATexto("ID del Cliente",20));
-            System.out.print(validarATexto("Precio Total",20));
+            System.out.print(validarATexto("Precio",20));
             System.out.print(validarATexto("IGV",20));
             System.out.print(validarATexto("Descuento",20));
             System.out.print(validarATexto("Estado",20));
+            System.out.print(validarATexto("Precio Final",20));
             System.out.println("");
             for (Object v : ventas){
                 CVenta vl = (CVenta) v;
                 vl.mostrarCLista();
+                double preciofinal = vl.getPrecioTotal() + vl.getIGV() - vl.getDescuento();
+                System.out.println(validarATexto(" " + (preciofinal), 20));
                 System.out.println("");
             }
         }
