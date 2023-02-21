@@ -13,6 +13,21 @@ public class PrincipalClases {
     private static List<Object> detalleVenta = new ArrayList<Object>();
 
     //VALIDACIONES y FUNCIONES BASICAS
+    //Validar texto no numeros
+    public static boolean validarNum(String Texto){
+        boolean flag = false;
+        if (Texto == null || Texto.equals("")) {
+            flag = false;
+        }
+        for (int i = 0; i < Texto.length(); i++)
+        {
+            char c = Texto.charAt(i);
+            if (Character.toString(c).matches("[0-9?]")) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 
     //Validar enteros positivos
     public static int leerEnteroPositivo(){
