@@ -8,8 +8,246 @@ import java.util.Scanner;
 
 public class PrincipalFloreriaBD {
     private static List<List<String>> data = new ArrayList<List<String>>();
+    public static int clienteExisteID(int ID){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call cExisteID(" + ID + ")");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static int clienteExiste(String tipodoc, String numdoc){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call cExiste('" + tipodoc + "','" + numdoc + "')");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static void crearCliente(){
+        conector c = new conector();
+        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String dtm = "" + FechaMysql.format(new Date());
 
-    public static void createFlor(){
+        System.out.println("Ingrese los datos del nuevo cliente");
+        System.out.println("Nombres: ");
+        String nombres = leerTexto();
+        System.out.println("Apellidos: ");
+        String apellidos = leerTexto();
+        System.out.println("Tipo de Documento: ");
+        String tipodoc = leerTexto();
+        System.out.println("Numero de Documento: ");
+        String numdoc = leerTexto();
+        System.out.println("Stock: ");
+        String correo = leerTexto();
+        System.out.println("Tipo: ");
+        String tipo = leerTexto();
+        System.out.println("Estado: ");
+        String estado = leerTexto();
+
+        if (clienteExiste(tipodoc, numdoc) == 0){
+            c.ejecutarProcedimientoSinDatos("call crearFlor('" + nombres + "', '" + apellidos + "', '" + tipodoc + "', '" + numdoc + "', '" + correo + "','" + tipo + "','" + estado + "')");
+            System.out.println("Cliente creado correctamente...");
+        }
+        else{
+            System.out.println("El cliente ya existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+    public static void eliminarCliente(){
+        conector c = new conector();
+        System.out.println("Ingrese el ID a eliminar: ");
+        int ID = leerEnteroPositivo();
+
+        if (clienteExisteID(ID) > 0){
+            c.ejecutarProcedimientoSinDatos("call eliminarcliente(" + ID + ")");
+            System.out.println("Cliente eliminado correctamente");
+        }
+        else{
+            System.out.println("El cliente no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+
+    public static void actualizarCliente(){
+        conector c = new conector();
+        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String dtm = "" + FechaMysql.format(new Date());
+
+        System.out.println("Ingrese el ID");
+        int ID = leerEnteroPositivo();
+
+        if (clienteExisteID(ID) > 0){
+            System.out.println("Ingrese los datos del nuevo cliente");
+            System.out.println("Nombres: ");
+            String nombres = leerTexto();
+            System.out.println("Apellidos: ");
+            String apellidos = leerTexto();
+            System.out.println("Tipo de Documento: ");
+            String tipodoc = leerTexto();
+            System.out.println("Numero de Documento: ");
+            String numdoc = leerTexto();
+            System.out.println("Stock: ");
+            String correo = leerTexto();
+            System.out.println("Tipo: ");
+            String tipo = leerTexto();
+            System.out.println("Estado: ");
+            String estado = leerTexto();
+            c.ejecutarProcedimientoSinDatos("call actualizarFlor(" + ID + ", '" + nombres + "', '" + apellidos + "', '" + tipodoc + "', '" + numdoc + "', '" + correo + "','" + tipo + "','" + estado + "')");
+            System.out.println("Cliente actualizado correctamente...");
+        }
+        else{
+            System.out.println("El cliente no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+
+    public static void mostrarCliente(){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call listarcliente()");
+
+        System.out.print(validarATexto("ID", 5));
+        System.out.print(validarATexto("NOMBREs", 25));
+        System.out.print(validarATexto("APELLIDOS", 25));
+        System.out.print(validarATexto("TIPO DE DOCUMENTO", 25));
+        System.out.print(validarATexto("NUMERO DE DOCUMENTO", 25));
+        System.out.print(validarATexto("CORREO", 30));
+        System.out.print(validarATexto("TIPO", 25));
+        System.out.print(validarATexto("ESTADO", 25));
+        System.out.println("");
+
+        for (List<String> dato: data ) {
+            System.out.print(validarATexto(dato.get(0), 5));
+            System.out.print(validarATexto(dato.get(1), 25));
+            System.out.print(validarATexto(dato.get(2), 25));
+            System.out.print(validarATexto(dato.get(3), 25));
+            System.out.print(validarATexto(dato.get(4), 25));
+            System.out.print(validarATexto(dato.get(5), 30));
+            System.out.print(validarATexto(dato.get(6), 25));
+            System.out.print(validarATexto(dato.get(7), 25));
+            System.out.println("");
+        }
+    }
+    public static int vendedorExisteID(int ID){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call vExisteID(" + ID + ")");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static int vendedorExiste(String nombres, String apellidos){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call fExiste('" + nombres + "','" + apellidos + "')");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static void crearVendedor(){
+        conector c = new conector();
+        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String dtm = "" + FechaMysql.format(new Date());
+
+        System.out.println("Ingrese los datos del nuevo vendedor");
+        System.out.println("Nombres: ");
+        String nombres = leerTexto();
+        System.out.println("Apellidos: ");
+        String apellidos = leerTexto();
+        System.out.println("Correo: ");
+        String correo = leerTexto();
+        System.out.println("Comision: ");
+        String comision = leerTexto();
+        System.out.println("Estado: ");
+        String estado = leerTexto();
+
+        if (vendedorExiste(nombres, apellidos) == 0){
+            c.ejecutarProcedimientoSinDatos("call crearvendedor('" + nombres + "', '" + apellidos + "', '" + correo + "','" + comision + "','" + estado + "')");
+            System.out.println("Vendedor creado correctamente...");
+        }
+        else{
+            System.out.println("El vendedor ingresado ya existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+    public static void eliminarVendedor(){
+        conector c = new conector();
+        System.out.println("Ingrese el ID a eliminar: ");
+        int ID = leerEnteroPositivo();
+
+        if (vendedorExisteID(ID) > 0){
+            c.ejecutarProcedimientoSinDatos("call eliminarvendedor(" + ID + ")");
+            System.out.println("Vendedor eliminado correctamente");
+        }
+        else{
+            System.out.println("El vendedor ingresado no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+
+    public static void actualizarVendedor(){
+        conector c = new conector();
+        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String dtm = "" + FechaMysql.format(new Date());
+
+        System.out.println("Ingrese el ID");
+        int ID = leerEnteroPositivo();
+
+        if (vendedorExisteID(ID) > 0){
+            System.out.println("Ingrese los datos del nuevo vendedor");
+            System.out.println("Nombres: ");
+            String nombres = leerTexto();
+            System.out.println("Apellidos: ");
+            String apellidos = leerTexto();
+            System.out.println("Correo: ");
+            String correo = leerTexto();
+            System.out.println("Comision: ");
+            String comision = leerTexto();
+            System.out.println("Estado: ");
+            String estado = leerTexto();
+            c.ejecutarProcedimientoSinDatos("call actualizarvendedor(" + ID + ", '" + nombres + "', '" + apellidos + "', '" + correo + "','" + comision + "','" + estado + "')");
+
+            System.out.println("Vendedor actualizado correctamente...");
+        }
+        else{
+            System.out.println("El vendedor ingresado no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
+    }
+
+    public static void mostrarVendedor(){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call listarvendedor()");
+
+        System.out.print(validarATexto("ID", 5));
+        System.out.print(validarATexto("NOMBRES", 25));
+        System.out.print(validarATexto("APELLIDOS", 25));
+        System.out.print(validarATexto("CORREO", 25));
+        System.out.print(validarATexto("COMISION", 25));
+        System.out.print(validarATexto("ESTADO", 25));
+        System.out.println("");
+
+        for (List<String> dato: data ) {
+            System.out.print(validarATexto(dato.get(0), 5));
+            System.out.print(validarATexto(dato.get(1), 25));
+            System.out.print(validarATexto(dato.get(2), 25));
+            System.out.print(validarATexto(dato.get(3), 25));
+            System.out.print(validarATexto(dato.get(4), 25));
+            System.out.print(validarATexto(dato.get(5), 25));
+            System.out.println("");
+        }
+    }
+    public static int florExisteID(int ID){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call fExisteID(" + ID + ")");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static int florExiste(String nombre, String aroma, String color){
+        conector c = new conector();
+        data = c.ejecutarProcedimientoConDatos("call fExiste('" + nombre + "','" + aroma + "','" + color + "')");
+        List<String> dato = data.get(0);
+        int val = Integer.parseInt(dato.get(0));
+        return val;
+    }
+    public static void crearFlor(){
         conector c = new conector();
         SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String dtm = "" + FechaMysql.format(new Date());
@@ -29,17 +267,28 @@ public class PrincipalFloreriaBD {
         System.out.println("Estado: ");
         String estado = leerTexto();
 
-        c.ejecutarProcedimientoSinDatos("call crearFlor('" + nombre + "', '" + aroma + "', '" + color + "', " + precio + ", " + stock + ",'" + dtm + "','" + estado + "')");
-
-        System.out.println("Flor creada correctamente...");
-
+        if (florExiste(nombre, aroma, color) == 0){
+            c.ejecutarProcedimientoSinDatos("call crearFlor('" + nombre + "', '" + aroma + "', '" + color + "', " + precio + ", " + stock + ",'" + dtm + "','" + estado + "')");
+            System.out.println("Flor creada correctamente...");
+        }
+        else{
+            System.out.println("La flor ingresada ya existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
     }
     public static void eliminarFLor(){
         conector c = new conector();
         System.out.println("Ingrese el ID a eliminar: ");
         int ID = leerEnteroPositivo();
-        c.ejecutarProcedimientoSinDatos("call eliminarFlor(" + ID + ")");
-        System.out.println("Flor eliminada correctamente");
+
+        if (florExisteID(ID) > 0){
+            c.ejecutarProcedimientoSinDatos("call eliminarFlor(" + ID + ")");
+            System.out.println("Flor eliminada correctamente");
+        }
+        else{
+            System.out.println("La flor ingresada no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
     }
 
     public static void actualizarFlor(){
@@ -50,24 +299,29 @@ public class PrincipalFloreriaBD {
         System.out.println("Ingrese el ID");
         int ID = leerEnteroPositivo();
 
-        System.out.println("Ingrese los datos de la nueva flor");
-        System.out.println("Fecha " + dtm);
-        System.out.println("Nombre: ");
-        String nombre = leerTexto();
-        System.out.println("Aroma: ");
-        String aroma = leerTexto();
-        System.out.println("Color: ");
-        String color = leerTexto();
-        System.out.println("Precio: ");
-        double precio = leerDecimalPositivo();
-        System.out.println("Stock: ");
-        int stock = leerEnteroPositivo();
-        System.out.println("Estado: ");
-        String estado = leerTexto();
+        if (florExisteID(ID) > 0){
+            System.out.println("Ingrese los datos de la nueva flor");
+            System.out.println("Fecha " + dtm);
+            System.out.println("Nombre: ");
+            String nombre = leerTexto();
+            System.out.println("Aroma: ");
+            String aroma = leerTexto();
+            System.out.println("Color: ");
+            String color = leerTexto();
+            System.out.println("Precio: ");
+            double precio = leerDecimalPositivo();
+            System.out.println("Stock: ");
+            int stock = leerEnteroPositivo();
+            System.out.println("Estado: ");
+            String estado = leerTexto();
+            c.ejecutarProcedimientoSinDatos("call actualizarFlor(" + ID + ", '" + nombre + "', '" + aroma + "', '" + color + "', " + precio + ", " + stock + ",'" + dtm + "','" + estado + "')");
 
-        c.ejecutarProcedimientoSinDatos("call actualizarFlor(" + ID + ", '" + nombre + "', '" + aroma + "', '" + color + "', " + precio + ", " + stock + ",'" + dtm + "','" + estado + "')");
-
-        System.out.println("Flor actualiada correctamente...");
+            System.out.println("Flor actualizada correctamente...");
+        }
+        else{
+            System.out.println("La flor ingresada no existe...");
+            System.out.println("Intentelo Nuevamente...");
+        }
     }
 
     public static void mostrarFlor(){
@@ -169,6 +423,15 @@ public class PrincipalFloreriaBD {
         texto = teclado.nextLine();
         return texto;
     }
+    //Menus
+    public static void menuPrincipal(){
+        System.out.println("*********** MENU PRINCIPAL ***********");
+        System.out.println("0- Salir");
+        System.out.println("1- Gestionar Flores.");
+        System.out.println("2- Gestionar Clientes.");
+        System.out.println("3- Gestionar Vendedores.");
+        System.out.println("  << Ingrese una opción >>  ");
+    }
     public static void menuClases(String ClaseS){
         System.out.println("*********** MENÚ " + ClaseS + " ***********");
         System.out.println("0- Salir.");
@@ -186,10 +449,7 @@ public class PrincipalFloreriaBD {
         System.out.println(" 3- " + opcion + " todo " + ClaseS);
         System.out.println("  << Ingrese una opción >>  ");
     }
-    public static void main(String[] args) {
-        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String dtm = "" + FechaMysql;
-
+    public static void crudFlores(){
         int opcion;
         do {
             menuClases("FLORES");
@@ -200,7 +460,7 @@ public class PrincipalFloreriaBD {
                     break;
                 case 1:
                     //Agregar
-                    createFlor();
+                    crearFlor();
                     break;
                 case 2:
                     //Mostrar
@@ -219,5 +479,91 @@ public class PrincipalFloreriaBD {
                     break;
             }
         }while (opcion != 0);
+    }
+    public static void crudClientes(){
+        int opcion;
+        do {
+            menuClases("CLIENTES");
+            opcion = leerEnteroPositivo();
+            switch (opcion){
+                case 0:
+                    System.out.println("Regresando al menú principal...");
+                    break;
+                case 1:
+                    //Agregar
+                    crearCliente();
+                    break;
+                case 2:
+                    //Mostrar
+                    mostrarCliente();
+                    break;
+                case 3:
+                    //Actualizar
+                    actualizarCliente();
+                    break;
+                case 4:
+                    //Eliminar
+                    eliminarCliente();
+                    break;
+                default:
+                    System.out.println("Opción fuera de rango");
+                    break;
+            }
+        }while (opcion != 0);
+    }
+    public static void crudVendedores(){
+        int opcion;
+        do {
+            menuClases("VENDEDORES");
+            opcion = leerEnteroPositivo();
+            switch (opcion){
+                case 0:
+                    System.out.println("Regresando al menú principal...");
+                    break;
+                case 1:
+                    //Agregar
+                    crearVendedor();
+                    break;
+                case 2:
+                    //Mostrar
+                    mostrarVendedor();
+                    break;
+                case 3:
+                    //Actualizar
+                    actualizarVendedor();
+                    break;
+                case 4:
+                    //Eliminar
+                    eliminarVendedor();
+                    break;
+                default:
+                    System.out.println("Opción fuera de rango");
+                    break;
+            }
+        }while (opcion != 0);
+    }
+    public static void main(String[] args) {
+        int opcionPrincipal;
+        do{
+            menuPrincipal();
+            opcionPrincipal = leerEnteroPositivo();
+            switch(opcionPrincipal){
+                case 0:
+                    System.out.println("Saliendo...");
+                    break;
+                case 1:
+                    crudFlores();
+                    break;
+                case 2:
+                    crudClientes();
+                    break;
+                case 3:
+                    crudVendedores();
+                    break;
+                default:
+                    System.out.println("Opción fuera de rango");
+                    break;
+            }
+        } while (opcionPrincipal != 0);
     }
 }
