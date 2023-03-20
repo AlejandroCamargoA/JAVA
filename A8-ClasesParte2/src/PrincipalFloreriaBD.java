@@ -1,5 +1,4 @@
 import java.text.SimpleDateFormat;
-import java.time.*;
 import java.util.ArrayList;
 
 import java.util.Date;
@@ -7,25 +6,21 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PrincipalFloreriaBD {
-    private static List<List<String>> data = new ArrayList<List<String>>();
+    private static List<List<String>> data = new ArrayList<>();
     public static int clienteExisteID(int ID){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call cExisteID(" + ID + ")");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static int clienteExiste(String tipodoc, String numdoc){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call cExiste('" + tipodoc + "','" + numdoc + "')");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static void crearCliente(){
         conector c = new conector();
-        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String dtm = "" + FechaMysql.format(new Date());
 
         System.out.println("Ingrese los datos del nuevo cliente");
         System.out.println("Nombres: ");
@@ -69,8 +64,6 @@ public class PrincipalFloreriaBD {
 
     public static void actualizarCliente(){
         conector c = new conector();
-        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String dtm = "" + FechaMysql.format(new Date());
 
         System.out.println("Ingrese el ID");
         int ID = leerEnteroPositivo();
@@ -111,8 +104,7 @@ public class PrincipalFloreriaBD {
         System.out.print(validarATexto("NUMERO DE DOCUMENTO", 25));
         System.out.print(validarATexto("CORREO", 30));
         System.out.print(validarATexto("TIPO", 25));
-        System.out.print(validarATexto("ESTADO", 25));
-        System.out.println("");
+        System.out.print(validarATexto("ESTADO", 25) + "\n");
 
         for (List<String> dato: data ) {
             System.out.print(validarATexto(dato.get(0), 5));
@@ -122,28 +114,23 @@ public class PrincipalFloreriaBD {
             System.out.print(validarATexto(dato.get(4), 25));
             System.out.print(validarATexto(dato.get(5), 30));
             System.out.print(validarATexto(dato.get(6), 25));
-            System.out.print(validarATexto(dato.get(7), 25));
-            System.out.println("");
+            System.out.print(validarATexto(dato.get(7), 25) + "\n");
         }
     }
     public static int vendedorExisteID(int ID){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call vExisteID(" + ID + ")");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static int vendedorExiste(String nombres, String apellidos){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call fExiste('" + nombres + "','" + apellidos + "')");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static void crearVendedor(){
         conector c = new conector();
-        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String dtm = "" + FechaMysql.format(new Date());
 
         System.out.println("Ingrese los datos del nuevo vendedor");
         System.out.println("Nombres: ");
@@ -183,8 +170,6 @@ public class PrincipalFloreriaBD {
 
     public static void actualizarVendedor(){
         conector c = new conector();
-        SimpleDateFormat FechaMysql = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String dtm = "" + FechaMysql.format(new Date());
 
         System.out.println("Ingrese el ID");
         int ID = leerEnteroPositivo();
@@ -220,8 +205,7 @@ public class PrincipalFloreriaBD {
         System.out.print(validarATexto("APELLIDOS", 25));
         System.out.print(validarATexto("CORREO", 25));
         System.out.print(validarATexto("COMISION", 25));
-        System.out.print(validarATexto("ESTADO", 25));
-        System.out.println("");
+        System.out.print(validarATexto("ESTADO", 25) + "\n");
 
         for (List<String> dato: data ) {
             System.out.print(validarATexto(dato.get(0), 5));
@@ -229,23 +213,20 @@ public class PrincipalFloreriaBD {
             System.out.print(validarATexto(dato.get(2), 25));
             System.out.print(validarATexto(dato.get(3), 25));
             System.out.print(validarATexto(dato.get(4), 25));
-            System.out.print(validarATexto(dato.get(5), 25));
-            System.out.println("");
+            System.out.print(validarATexto(dato.get(5), 25) + "\n");
         }
     }
     public static int florExisteID(int ID){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call fExisteID(" + ID + ")");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static int florExiste(String nombre, String aroma, String color){
         conector c = new conector();
         data = c.ejecutarProcedimientoConDatos("call fExiste('" + nombre + "','" + aroma + "','" + color + "')");
         List<String> dato = data.get(0);
-        int val = Integer.parseInt(dato.get(0));
-        return val;
+        return Integer.parseInt(dato.get(0));
     }
     public static void crearFlor(){
         conector c = new conector();
@@ -335,8 +316,7 @@ public class PrincipalFloreriaBD {
         System.out.print(validarATexto("PRECIO", 10));
         System.out.print(validarATexto("STOCK", 10));
         System.out.print(validarATexto("FECHA", 30));
-        System.out.print(validarATexto("ESTADO", 25));
-        System.out.println("");
+        System.out.print(validarATexto("ESTADO", 25) + "\n");
 
         for (List<String> dato: data ) {
             System.out.print(validarATexto(dato.get(0), 5));
@@ -346,12 +326,11 @@ public class PrincipalFloreriaBD {
             System.out.print(validarATexto(dato.get(4), 10));
             System.out.print(validarATexto(dato.get(5), 10));
             System.out.print(validarATexto(dato.get(6), 30));
-            System.out.print(validarATexto(dato.get(7), 25));
-            System.out.println("");
+            System.out.print(validarATexto(dato.get(7), 25) + "\n");
         }
     }
-    public static String validarATexto(String texto, int tamaño){
-        while (texto.length() < tamaño){
+    public static String validarATexto(String texto, int tamanio){
+        while (texto.length() < tamanio){
             texto = texto + " ";
         }
         return texto;
@@ -374,7 +353,7 @@ public class PrincipalFloreriaBD {
     //Validar enteros positivos
     public static int leerEnteroPositivo(){
         int entero = 0;
-        Boolean flag = true;
+        boolean flag = true;
         Scanner teclado;
         do {
             teclado = new Scanner(System.in);
@@ -396,7 +375,7 @@ public class PrincipalFloreriaBD {
     //Validar decimales positivos
     public static double leerDecimalPositivo(){
         double decimal = 0.0;
-        Boolean flag = true;
+        boolean flag = true;
         Scanner teclado;
         do {
             teclado = new Scanner(System.in);
@@ -417,7 +396,7 @@ public class PrincipalFloreriaBD {
     }
     //Leer texto
     public static String leerTexto(){
-        String texto = "";
+        String texto;
         Scanner teclado;
         teclado = new Scanner(System.in);
         texto = teclado.nextLine();
