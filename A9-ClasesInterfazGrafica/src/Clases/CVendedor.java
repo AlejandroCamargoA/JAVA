@@ -1,23 +1,37 @@
 package Clases;
 
+import conexion.conector;
+
 public class CVendedor {
+
     private int idVendedor;
-    private String tipoDocumento;
-    private String numDocumento;
     private String nombres;
     private String apellidos;
+    private String tipoDocumento;
+    private String numDocumento;
     private String correo;
-    private String Contrasenia;
+    private int comision;
     private String estado;
 
-    public CVendedor(int idVendedor, String tipoDocumento, String numDocumento, String nombres, String apellidos, String correo, String contrasenia, String estado) {
+    public CVendedor() {
+        this.idVendedor = 0;
+        this.nombres = null;
+        this.apellidos = null;
+        this.tipoDocumento = null;
+        this.numDocumento = null;
+        this.correo = null;
+        this.comision = 0;
+        this.estado = null;
+    }
+
+    public CVendedor(int idVendedor, String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, int comision, String estado) {
         this.idVendedor = idVendedor;
-        this.tipoDocumento = tipoDocumento;
-        this.numDocumento = numDocumento;
         this.nombres = nombres;
         this.apellidos = apellidos;
+        this.tipoDocumento = tipoDocumento;
+        this.numDocumento = numDocumento;
         this.correo = correo;
-        Contrasenia = contrasenia;
+        this.comision = comision;
         this.estado = estado;
     }
 
@@ -27,22 +41,6 @@ public class CVendedor {
 
     public void setIdVendedor(int idVendedor) {
         this.idVendedor = idVendedor;
-    }
-
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
-    }
-
-    public String getNumDocumento() {
-        return numDocumento;
-    }
-
-    public void setNumDocumento(String numDocumento) {
-        this.numDocumento = numDocumento;
     }
 
     public String getNombres() {
@@ -61,6 +59,22 @@ public class CVendedor {
         this.apellidos = apellidos;
     }
 
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getNumDocumento() {
+        return numDocumento;
+    }
+
+    public void setNumDocumento(String numDocumento) {
+        this.numDocumento = numDocumento;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -69,12 +83,12 @@ public class CVendedor {
         this.correo = correo;
     }
 
-    public String getContrasenia() {
-        return Contrasenia;
+    public int getComision() {
+        return comision;
     }
 
-    public void setContrasenia(String contrasenia) {
-        Contrasenia = contrasenia;
+    public void setComision(int comision) {
+        this.comision = comision;
     }
 
     public String getEstado() {
@@ -84,4 +98,17 @@ public class CVendedor {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public void save(){
+        conector c = new conector();
+        String consulta = "call crearvendedor('"
+                + this.nombres+"','"
+                + this.apellidos +"','"
+                + this.correo +"',"
+                + this.comision +",'"
+                + this.estado + "')";
+        System.out.println(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
+
 }
