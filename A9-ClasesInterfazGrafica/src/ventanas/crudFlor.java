@@ -28,6 +28,7 @@ public class crudFlor extends JFrame {
     private JLabel lbfcreacion;
     private JLabel jlbEstado;
 
+    private JButton jbtNuevo = new JButton();
     private JButton jbtGuardar = new JButton();
     private JButton jbtActualizar = new JButton();
     private JButton jbtLimpiar = new JButton();
@@ -111,13 +112,16 @@ public class crudFlor extends JFrame {
         jtfEstado.setText(flor.getEstado()+"");
         jtfEstado.setBounds(180,340, 150,45);
 
+        jbtNuevo.setText("Limpiar Registro");
+        jbtNuevo.setBounds(350,90, 150,45);
+
         jbtGuardar.setText("Guardar");
         jbtGuardar.setBounds(50,390, 150,45);
 
-        jbtActualizar.setText("Actualizar");
+        jbtActualizar.setText("Mostrar Lista");
         jbtActualizar.setBounds(230,390, 150,45);
 
-        jbtLimpiar.setText("limpiar");
+        jbtLimpiar.setText("Eliminar");
         jbtLimpiar.setBounds(400,390, 150,45);
 
         panel.add(jlbIdFlor);
@@ -134,7 +138,7 @@ public class crudFlor extends JFrame {
         panel.add(jtfEstado);
         panel.add(jlbEstado);
 
-
+        panel.add(jbtNuevo);
         panel.add(jbtGuardar);
         panel.add(jbtActualizar);
         panel.add(jbtLimpiar);
@@ -189,6 +193,17 @@ public class crudFlor extends JFrame {
                 flor.eliminar();
             }
         });
-
+        jbtNuevo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jlbIdFlor.setText("0");
+                jtfNombre.setText("");
+                jtfAroma.setText("");
+                jtfColor.setText("");
+                jtfPrecio.setText("");
+                jtfStock.setText("");
+                jtfEstado.setText("");
+            }
+        });
     }
 }

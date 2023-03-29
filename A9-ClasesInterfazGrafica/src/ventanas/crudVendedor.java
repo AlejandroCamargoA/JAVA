@@ -27,6 +27,7 @@ public class crudVendedor extends JFrame {
     private JLabel jlbComision;
     private JLabel jlbEstado;
 
+    private JButton jbtNuevo = new JButton();
     private JButton jbtGuardar = new JButton();
     private JButton jbtActualizar = new JButton();
     private JButton jbtLimpiar = new JButton();
@@ -38,6 +39,7 @@ public class crudVendedor extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
+        vendedor = new CVendedor();
         inicializarComponentes();
         cargarEventos();
 
@@ -116,13 +118,16 @@ public class crudVendedor extends JFrame {
         jtfEstado.setText(vendedor.getEstado()+"");
         jtfEstado.setBounds(180,390, 150,45);
 
+        jbtNuevo.setText("Limpiar Registro");
+        jbtNuevo.setBounds(350,90, 150,45);
+
         jbtGuardar.setText("Guardar");
         jbtGuardar.setBounds(50,440, 150,45);
 
-        jbtActualizar.setText("Actualizar");
+        jbtActualizar.setText("Mostrar Lista");
         jbtActualizar.setBounds(230,440, 150,45);
 
-        jbtLimpiar.setText("limpiar");
+        jbtLimpiar.setText("Eliminar");
         jbtLimpiar.setBounds(400,440, 150,45);
 
         panel.add(jlbIdVendedor);
@@ -141,6 +146,7 @@ public class crudVendedor extends JFrame {
         panel.add(jlbComision);
         panel.add(jlbEstado);
 
+        panel.add(jbtNuevo);
         panel.add(jbtGuardar);
         panel.add(jbtActualizar);
         panel.add(jbtLimpiar);
@@ -152,13 +158,63 @@ public class crudVendedor extends JFrame {
         jbtGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CVendedor v = new CVendedor();
-                v.setNombres(jtfNombres.getText());
-                v.setApellidos(jtfApellidos.getText());
-                v.setCorreo(jtfCorreo.getText());
-                v.setComision(Integer.parseInt(jtfComision.getText()));
-                v.setEstado(jtfEstado.getText());
-                v.save();
+                if(vendedor.getIdVendedor() == 0){
+                    vendedor.setNombres(jtfNombres.getText());
+                    vendedor.setApellidos(jtfApellidos.getText());
+                    vendedor.setTipoDocumento(jtfTipoDocumento.getText());
+                    vendedor.setNumDocumento(jtfNumDocumento.getText());
+                    vendedor.setCorreo(jtfCorreo.getText());
+                    vendedor.setComision(Double.parseDouble(jtfComision.getText()));
+                    vendedor.setEstado(jtfEstado.getText());
+                    vendedor.save();
+                }else{
+                    vendedor.setIdVendedor(Integer.parseInt(jlbIdVendedor.getText()));
+                    vendedor.setNombres(jtfNombres.getText());
+                    vendedor.setApellidos(jtfApellidos.getText());
+                    vendedor.setTipoDocumento(jtfTipoDocumento.getText());
+                    vendedor.setNumDocumento(jtfNumDocumento.getText());
+                    vendedor.setCorreo(jtfCorreo.getText());
+                    vendedor.setComision(Double.parseDouble(jtfComision.getText()));
+                    vendedor.setEstado(jtfEstado.getText());
+                    vendedor.update();
+                }
+            }
+        });
+        jbtActualizar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListarVendedores cf = new ListarVendedores();
+                cf.setVisible(true);
+                cf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                cf.setTitle("Tabla Vendedores");
+                dispose();
+            }
+        });
+        jbtLimpiar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vendedor.setIdVendedor(Integer.parseInt(jlbIdVendedor.getText()));
+                vendedor.setNombres(jtfNombres.getText());
+                vendedor.setApellidos(jtfApellidos.getText());
+                vendedor.setTipoDocumento(jtfTipoDocumento.getText());
+                vendedor.setNumDocumento(jtfNumDocumento.getText());
+                vendedor.setCorreo(jtfCorreo.getText());
+                vendedor.setComision(Double.parseDouble(jtfComision.getText()));
+                vendedor.setEstado(jtfEstado.getText());
+                vendedor.eliminar();
+            }
+        });
+        jbtNuevo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jlbIdVendedor.setText("0");
+                jtfNombres.setText("");
+                jtfApellidos.setText("");
+                jtfTipoDocumento.setText("");
+                jtfNumDocumento.setText("");
+                jtfCorreo.setText("");
+                jtfComision.setText("");
+                jtfEstado.setText("");
             }
         });
     }

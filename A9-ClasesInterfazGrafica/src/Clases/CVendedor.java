@@ -12,7 +12,7 @@ public class CVendedor {
     private String tipoDocumento;
     private String numDocumento;
     private String correo;
-    private int comision;
+    private double comision;
     private String estado;
 
     public CVendedor() {
@@ -26,7 +26,7 @@ public class CVendedor {
         this.estado = "";
     }
 
-    public CVendedor(String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, int comision, String estado) {
+    public CVendedor(String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, double comision, String estado) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
@@ -84,11 +84,11 @@ public class CVendedor {
         this.correo = correo;
     }
 
-    public int getComision() {
+    public double getComision() {
         return comision;
     }
 
-    public void setComision(int comision) {
+    public void setComision(double comision) {
         this.comision = comision;
     }
 
@@ -110,7 +110,6 @@ public class CVendedor {
                 + this.correo +"',"
                 + this.comision +",'"
                 + this.estado + "')";
-        System.out.println(consulta);
         c.ejecutarProcedimientoSinDatos(consulta);
     }
     public void update(){
@@ -132,7 +131,7 @@ public class CVendedor {
             conector conexion = new conector();
             String consulta = "";
             if (pIdVendedor.compareTo("") == 0) {
-                consulta = "call listarClientesActivos('activo');";
+                consulta = "call listarvendedoresactivos('activo');";
             } else {
                 consulta = "select * from TFlor where idFlor = '" + pIdVendedor + "';";
             }

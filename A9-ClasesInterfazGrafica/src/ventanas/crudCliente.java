@@ -31,6 +31,7 @@ public class crudCliente extends JFrame {
     private JButton jbtGuardar = new JButton();
     private JButton jbtActualizar = new JButton();
     private JButton jbtLimpiar = new JButton();
+    private JButton jbtNuevo = new JButton();
 
     public crudCliente(){
         setSize(650, 650);
@@ -118,13 +119,16 @@ public class crudCliente extends JFrame {
         jtfEstado.setText(cliente.getEstado()+"");
         jtfEstado.setBounds(180,390, 150,45);
 
+        jbtNuevo.setText("Limpiar Registro");
+        jbtNuevo.setBounds(350,90, 150,45);
+
         jbtGuardar.setText("Guardar");
         jbtGuardar.setBounds(50,440, 150,45);
 
-        jbtActualizar.setText("Actualizar");
+        jbtActualizar.setText("Mostrar Lista");
         jbtActualizar.setBounds(230,440, 150,45);
 
-        jbtLimpiar.setText("limpiar");
+        jbtLimpiar.setText("Eliminar");
         jbtLimpiar.setBounds(400,440, 150,45);
 
         panel.add(jlbIdCliente);
@@ -143,6 +147,7 @@ public class crudCliente extends JFrame {
         panel.add(jlbTipo);
         panel.add(jlbEstado);
 
+        panel.add(jbtNuevo);
         panel.add(jbtGuardar);
         panel.add(jbtActualizar);
         panel.add(jbtLimpiar);
@@ -182,7 +187,7 @@ public class crudCliente extends JFrame {
                 ListarClientes cf = new ListarClientes();
                 cf.setVisible(true);
                 cf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                cf.setTitle("Tabla Flores");
+                cf.setTitle("Tabla Clientes");
                 dispose();
             }
         });
@@ -198,6 +203,19 @@ public class crudCliente extends JFrame {
                 cliente.setTipo(jtfTipo.getText());
                 cliente.setEstado(jtfEstado.getText());
                 cliente.eliminar();
+            }
+        });
+        jbtNuevo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jlbIdCliente.setText("0");
+                jtfNombres.setText("");
+                jtfApellidos.setText("");
+                jtfTipoDocumento.setText("");
+                jtfNumDocumento.setText("");
+                jtfCorreo.setText("");
+                jtfTipo.setText("");
+                jtfEstado.setText("");
             }
         });
     }

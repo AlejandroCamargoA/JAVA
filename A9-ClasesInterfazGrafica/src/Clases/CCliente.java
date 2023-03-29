@@ -144,7 +144,6 @@ public class CCliente {
         conector c = new conector();
         String consulta = "call eliminarcliente("
                 + this.idCliente + ")";
-        System.out.printf(consulta);
         c.ejecutarProcedimientoSinDatos(consulta);
     }
 }

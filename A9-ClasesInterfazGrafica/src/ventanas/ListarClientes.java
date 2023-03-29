@@ -43,14 +43,14 @@ public class ListarClientes extends JFrame{
 
         tablaFlores = new JTable(modeloTablaFlores);
 
-        tablaFlores.setBounds(30, 50, 430, 350);
+        tablaFlores.setBounds(30, 50, 600, 350);
         panel.add(tablaFlores);
 
         despl = new JScrollPane(tablaFlores,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-        despl.setBounds(30, 50, 430, 350);
+        despl.setBounds(30, 50, 580, 350);
         despl.setAutoscrolls(true);
         panel.add(despl);
 
