@@ -102,19 +102,19 @@ public class CCliente {
     public void nuevo(){
         System.out.println("Ingrese los Datos del nuevo Cliente: ");
         System.out.print("Nombres : ");
-        this.setNombre(Aux.leerTexto());
+        this.setNombre(fbasicas.leerTexto());
         System.out.print("Apellidos : ");
-        this.setApellidos(Aux.leerTexto());
+        this.setApellidos(fbasicas.leerTexto());
         System.out.print("Tipo de Documento : ");
-        this.setTipodocumento(Aux.leerTexto());
+        this.setTipodocumento(fbasicas.leerTexto());
         System.out.print("Número de Documento : ");
-        this.setNumdocumento(Aux.leerTexto());
+        this.setNumdocumento(fbasicas.leerTexto());
         System.out.print("Correo : ");
-        this.setCorreo(Aux.leerTexto());
+        this.setCorreo(fbasicas.leerTexto());
         System.out.print("Tipo : ");
-        this.setTipo(Aux.leerTexto());
+        this.setTipo(fbasicas.leerTexto());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
     }
     public void listar(){
@@ -171,19 +171,19 @@ public class CCliente {
         System.out.println("Ingrese los nuevos datos del cliente");
         System.out.println("ID : " + this.idcliente);
         System.out.print("Nombres : ");
-        this.setNombre(Aux.leerTexto());
+        this.setNombre(fbasicas.leerTexto());
         System.out.print("Apellidos : ");
-        this.setApellidos(Aux.leerTexto());
+        this.setApellidos(fbasicas.leerTexto());
         System.out.print("Tipo de Documento : ");
-        this.setTipodocumento(Aux.leerTexto());
+        this.setTipodocumento(fbasicas.leerTexto());
         System.out.print("Numero de Documento : ");
-        this.setNumdocumento(Aux.leerTexto());
+        this.setNumdocumento(fbasicas.leerTexto());
         System.out.print("Correo : ");
-        this.setCorreo(Aux.leerTexto());
+        this.setCorreo(fbasicas.leerTexto());
         System.out.print("Tipo : ");
-        this.setTipo(Aux.leerTexto());
+        this.setTipo(fbasicas.leerTexto());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
 
         String consulta = "call actualizarcliente("
@@ -249,7 +249,7 @@ public class CCliente {
         CCliente f = new CCliente();
         conector c = new conector();
         System.out.println("Ingrese el ID del cliente");
-        int ID = Aux.leerEnteroPositivo();
+        int ID = fbasicas.leerEnteroPositivo();
         data = c.ejecutarProcedimientoConDatos("call crecuperarID(" + ID + ")");
         for (List<String> dato: data ) {
             f.setIdcliente(Integer.parseInt(dato.get(0)));
@@ -268,9 +268,9 @@ public class CCliente {
         conector c = new conector();
         System.out.println("Ingrese la Clave del cliente");
         System.out.print("tipo de documento: ");
-        String tipodoc = Aux.leerTexto();
+        String tipodoc = fbasicas.leerTexto();
         System.out.print("número de documento: ");
-        String numdoc = Aux.leerTexto();
+        String numdoc = fbasicas.leerTexto();
         System.out.println();
         data = c.ejecutarProcedimientoConDatos("call crecuperarClave('" + tipodoc + "','" + numdoc + "')");
         for (List<String> dato: data ) {

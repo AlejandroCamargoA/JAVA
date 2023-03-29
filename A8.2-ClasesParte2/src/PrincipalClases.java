@@ -49,7 +49,7 @@ public class PrincipalClases {
         int opcion;
         do {
             menuClases("FLORES");
-            opcion = Aux.leerEnteroPositivo();
+            opcion = fbasicas.leerEnteroPositivo();
             switch (opcion){
                 case 0:
                     System.out.println("Regresando al menú principal...");
@@ -70,7 +70,7 @@ public class PrincipalClases {
                             System.out.println("La Flor ingresada ya existe...");
                             System.out.println("¿Desea intentarlo nuevamente?");
                             System.out.println("1) Si       Otro numero) No");
-                            int op = Aux.leerEnteroPositivo();
+                            int op = fbasicas.leerEnteroPositivo();
                             if (op == 1){
                                 flag = false;
                             }
@@ -86,7 +86,7 @@ public class PrincipalClases {
                     int opcionMostrar;
                     do {
                         subMenus("Flores", "Mostrar");
-                        opcionMostrar = Aux.leerEnteroPositivo();
+                        opcionMostrar = fbasicas.leerEnteroPositivo();
                         switch (opcionMostrar){
                             case 0:
                                 System.out.println("Regresando al menú flores...");
@@ -106,7 +106,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -132,7 +132,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -158,7 +158,7 @@ public class PrincipalClases {
                     int opcionActualizar;
                     do {
                         subMenu2("Flores", "Actualizar");
-                        opcionActualizar = Aux.leerEnteroPositivo();
+                        opcionActualizar = fbasicas.leerEnteroPositivo();
                         switch (opcionActualizar){
                             case 0:
                                 System.out.println("Regresando al menú flores...");
@@ -180,7 +180,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -207,7 +207,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -228,7 +228,7 @@ public class PrincipalClases {
                     int opcionEliminar;
                     do {
                         subMenu2("Flores", "Eliminar");
-                        opcionEliminar = Aux.leerEnteroPositivo();
+                        opcionEliminar = fbasicas.leerEnteroPositivo();
                         switch (opcionEliminar){
                             case 0:
                                 System.out.println("Regresando al menú flores...");
@@ -250,7 +250,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -277,7 +277,7 @@ public class PrincipalClases {
                                         System.out.println("La Flor ingresada no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -304,7 +304,7 @@ public class PrincipalClases {
         int opcion;
         do {
             menuClases("CLIENTES");
-            opcion = Aux.leerEnteroPositivo();
+            opcion = fbasicas.leerEnteroPositivo();
             switch (opcion){
                 case 0:
                     System.out.println("Regresando al menú principal...");
@@ -325,7 +325,7 @@ public class PrincipalClases {
                             System.out.println("El cliente ingresado ya existe...");
                             System.out.println("¿Desea intentarlo nuevamente?");
                             System.out.println("1) Si       Otro numero) No");
-                            int op = Aux.leerEnteroPositivo();
+                            int op = fbasicas.leerEnteroPositivo();
                             if (op == 1){
                                 flag = false;
                             }
@@ -341,7 +341,7 @@ public class PrincipalClases {
                     int opcionMostrar;
                     do {
                         subMenus("Clientes", "Mostrar");
-                        opcionMostrar = Aux.leerEnteroPositivo();
+                        opcionMostrar = fbasicas.leerEnteroPositivo();
                         switch (opcionMostrar){
                             case 0:
                                 System.out.println("Regresando al menú clientes...");
@@ -361,7 +361,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -387,7 +387,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -413,7 +413,7 @@ public class PrincipalClases {
                     int opcionActualizar;
                     do {
                         subMenu2("Clientes", "Actualizar");
-                        opcionActualizar = Aux.leerEnteroPositivo();
+                        opcionActualizar = fbasicas.leerEnteroPositivo();
                         switch (opcionActualizar){
                             case 0:
                                 System.out.println("Regresando al menú clientes...");
@@ -435,7 +435,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -462,7 +462,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -483,7 +483,7 @@ public class PrincipalClases {
                     int opcionEliminar;
                     do {
                         subMenu2("Clientes", "Eliminar");
-                        opcionEliminar = Aux.leerEnteroPositivo();
+                        opcionEliminar = fbasicas.leerEnteroPositivo();
                         switch (opcionEliminar){
                             case 0:
                                 System.out.println("Regresando al menú clientes...");
@@ -505,7 +505,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -532,7 +532,7 @@ public class PrincipalClases {
                                         System.out.println("El cliente ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -559,7 +559,7 @@ public class PrincipalClases {
         int opcion;
         do {
             menuClases("VENDEDORES");
-            opcion = Aux.leerEnteroPositivo();
+            opcion = fbasicas.leerEnteroPositivo();
             switch (opcion){
                 case 0:
                     System.out.println("Regresando al menú principal...");
@@ -580,7 +580,7 @@ public class PrincipalClases {
                             System.out.println("El Vendedor ingresado ya existe...");
                             System.out.println("¿Desea intentarlo nuevamente?");
                             System.out.println("1) Si       Otro numero) No");
-                            int op = Aux.leerEnteroPositivo();
+                            int op = fbasicas.leerEnteroPositivo();
                             if (op == 1){
                                 flag = false;
                             }
@@ -596,7 +596,7 @@ public class PrincipalClases {
                     int opcionMostrar;
                     do {
                         subMenus("Vendedores", "Mostrar");
-                        opcionMostrar = Aux.leerEnteroPositivo();
+                        opcionMostrar = fbasicas.leerEnteroPositivo();
                         switch (opcionMostrar){
                             case 0:
                                 System.out.println("Regresando al menú Vendedores...");
@@ -616,7 +616,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -642,7 +642,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -668,7 +668,7 @@ public class PrincipalClases {
                     int opcionActualizar;
                     do {
                         subMenu2("Vendedores", "Actualizar");
-                        opcionActualizar = Aux.leerEnteroPositivo();
+                        opcionActualizar = fbasicas.leerEnteroPositivo();
                         switch (opcionActualizar){
                             case 0:
                                 System.out.println("Regresando al menú Vendedores...");
@@ -690,7 +690,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -717,7 +717,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -738,7 +738,7 @@ public class PrincipalClases {
                     int opcionEliminar;
                     do {
                         subMenu2("Vendedores", "Eliminar");
-                        opcionEliminar = Aux.leerEnteroPositivo();
+                        opcionEliminar = fbasicas.leerEnteroPositivo();
                         switch (opcionEliminar){
                             case 0:
                                 System.out.println("Regresando al menú Vendedores...");
@@ -760,7 +760,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag1 = false;
                                         }
@@ -787,7 +787,7 @@ public class PrincipalClases {
                                         System.out.println("El Vendedor ingresado no existe");
                                         System.out.println("¿Desea intentarlo nuevamente?");
                                         System.out.println("1) Si       Otro número) No");
-                                        int op = Aux.leerEnteroPositivo();
+                                        int op = fbasicas.leerEnteroPositivo();
                                         if (op == 1){
                                             flag2 = false;
                                         }
@@ -814,7 +814,7 @@ public class PrincipalClases {
         int opcionPrincipal;
         do{
             menuPrincipal();
-            opcionPrincipal = Aux.leerEnteroPositivo();
+            opcionPrincipal = fbasicas.leerEnteroPositivo();
             switch(opcionPrincipal){
                 case 0:
                     System.out.println("Saliendo...");
@@ -856,7 +856,7 @@ public class PrincipalClases {
                     boolean t = false;
                     do {
                         System.out.println("Ingrese el ID del vendedor: ");
-                        idvendedor = Aux.leerEnteroPositivo();
+                        idvendedor = fbasicas.leerEnteroPositivo();
                         if (existeVendedor(idvendedor)){
                             System.out.println("Vendedor Encontrado");
                             t = true;
@@ -872,7 +872,7 @@ public class PrincipalClases {
                     do{
                         System.out.println("Seleccione tipo de documento:");
                         System.out.println("  (F) Factura        (B) Boleta");
-                        tipoDocumento = Aux.leerTexto();
+                        tipoDocumento = fbasicas.leerTexto();
                         if(tipoDocumento.equals("F")){
                             System.out.println("GENERANDO FACTURA");
                         }else{
@@ -887,9 +887,9 @@ public class PrincipalClases {
                     boolean fg = false;
                     do {
                         System.out.println("Ingrese el Tipo de Documento del cliente:");
-                        String tipodocCli = Aux.leerTexto();
+                        String tipodocCli = fbasicas.leerTexto();
                         System.out.println("Ingrese el Número de Documento del cliente:");
-                        String numdocCli = Aux.leerTexto();
+                        String numdocCli = fbasicas.leerTexto();
                         if(docExiste(tipodocCli, numdocCli)){
                             System.out.println("Cliente Encontrado...");
                             CCliente f1 = new CCliente();
@@ -921,7 +921,7 @@ public class PrincipalClases {
                                             System.out.println("El cliente ingresado ya existe...");
                                             System.out.println("¿Desea intentarlo nuevamente?");
                                             System.out.println("1) Si       Otro numero) No");
-                                            int op = Aux.leerEnteroPositivo();
+                                            int op = fbasicas.leerEnteroPositivo();
                                             if (op == 1){
                                                 flag = false;
                                             }
@@ -968,20 +968,20 @@ public class PrincipalClases {
 
                     do{
                         System.out.println("(A) Agregar flor    (otro) terminar");
-                        agregarFlores = Aux.leerTexto();
+                        agregarFlores = fbasicas.leerTexto();
                         if(agregarFlores.equals("A")) {
                             System.out.print("Seleccione el ID de la flor para agregar a la venta:");
-                            int idfVenta = Aux.leerEnteroPositivo();
+                            int idfVenta = fbasicas.leerEnteroPositivo();
 
                             if (flornoExiste(idfVenta)){
                                 System.out.println("Ese ID no existe");
                                 System.out.println("Intentelo nuevamente...");
                             }else {
                                 System.out.println("Cantidad: ");
-                                int cantidad = Aux.leerEnteroPositivo();
+                                int cantidad = fbasicas.leerEnteroPositivo();
 
                                 System.out.print("Descuento: ");
-                                double desc = Aux.leerDecimalPositivo();
+                                double desc = fbasicas.leerDecimalPositivo();
 
                                 CFlor f2 = new CFlor();
                                 f2.setIdflor(idfVenta);

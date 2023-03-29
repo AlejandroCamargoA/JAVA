@@ -102,17 +102,17 @@ public class CFlor {
     public void nuevo(){
         System.out.println("Ingrese los Datos de la nueva Flor: ");
         System.out.print("Nombre : ");
-        this.setNombre(Aux.leerTexto());
+        this.setNombre(fbasicas.leerTexto());
         System.out.print("Aroma : ");
-        this.setAroma(Aux.leerTexto());
+        this.setAroma(fbasicas.leerTexto());
         System.out.print("Color : ");
-        this.setColor(Aux.leerTexto());
+        this.setColor(fbasicas.leerTexto());
         System.out.print("Precio : ");
-        this.setPrecio(Aux.leerDecimalPositivo());
+        this.setPrecio(fbasicas.leerDecimalPositivo());
         System.out.print("Stock : ");
-        this.setStock(Aux.leerEnteroPositivo());
+        this.setStock(fbasicas.leerEnteroPositivo());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
     }
     public void listar(){
@@ -172,17 +172,17 @@ public class CFlor {
         System.out.println("Ingrese los nuevos datos de la flor");
         System.out.println("ID : " + this.idflor);
         System.out.print("Nombre : ");
-        this.setNombre(Aux.leerTexto());
+        this.setNombre(fbasicas.leerTexto());
         System.out.print("Aroma : ");
-        this.setAroma(Aux.leerTexto());
+        this.setAroma(fbasicas.leerTexto());
         System.out.print("Color : ");
-        this.setColor(Aux.leerTexto());
+        this.setColor(fbasicas.leerTexto());
         System.out.print("Precio : ");
-        this.setPrecio(Aux.leerDecimalPositivo());
+        this.setPrecio(fbasicas.leerDecimalPositivo());
         System.out.print("Stock : ");
-        this.setStock(Aux.leerEnteroPositivo());
+        this.setStock(fbasicas.leerEnteroPositivo());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
 
         String consulta = "call actualizarFlor("
@@ -248,7 +248,7 @@ public class CFlor {
         CFlor f = new CFlor();
         conector c = new conector();
         System.out.println("Ingrese el ID de la flor");
-        int ID = Aux.leerEnteroPositivo();
+        int ID = fbasicas.leerEnteroPositivo();
         data = c.ejecutarProcedimientoConDatos("call frecuperarID(" + ID + ")");
         for (List<String> dato: data ) {
             f.setIdflor(Integer.parseInt(dato.get(0)));
@@ -267,11 +267,11 @@ public class CFlor {
         conector c = new conector();
         System.out.println("Ingrese la Clave de la flor");
         System.out.print("nombre: ");
-        String nombre = Aux.leerTexto();
+        String nombre = fbasicas.leerTexto();
         System.out.print("aroma: ");
-        String aroma = Aux.leerTexto();
+        String aroma = fbasicas.leerTexto();
         System.out.print("color: ");
-        String color = Aux.leerTexto();
+        String color = fbasicas.leerTexto();
         System.out.println();
         data = c.ejecutarProcedimientoConDatos("call frecuperarClave('" + nombre + "','" + aroma + "','" + color + "')");
         for (List<String> dato: data ) {

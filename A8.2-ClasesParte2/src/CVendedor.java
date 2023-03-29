@@ -101,19 +101,19 @@ public class CVendedor {
     public void nuevo(){
         System.out.println("Ingrese los Datos del nuevo Vendedor: ");
         System.out.print("Nombres : ");
-        this.setNombres(Aux.leerTexto());
+        this.setNombres(fbasicas.leerTexto());
         System.out.print("Apellidos : ");
-        this.setApellidos(Aux.leerTexto());
+        this.setApellidos(fbasicas.leerTexto());
         System.out.print("Tipo de Documento : ");
-        this.setTipodocumento(Aux.leerTexto());
+        this.setTipodocumento(fbasicas.leerTexto());
         System.out.print("Número de Documento : ");
-        this.setNumdocumento(Aux.leerTexto());
+        this.setNumdocumento(fbasicas.leerTexto());
         System.out.print("Correo : ");
-        this.setCorreo(Aux.leerTexto());
+        this.setCorreo(fbasicas.leerTexto());
         System.out.print("Comision : ");
-        this.setComision(Aux.leerDecimalPositivo());
+        this.setComision(fbasicas.leerDecimalPositivo());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
     }
     public void listar(){
@@ -170,19 +170,19 @@ public class CVendedor {
         System.out.println("Ingrese los nuevos datos del vendedor");
         System.out.println("ID : " + this.idvendedor);
         System.out.print("Nombres : ");
-        this.setNombres(Aux.leerTexto());
+        this.setNombres(fbasicas.leerTexto());
         System.out.print("Apellidos : ");
-        this.setApellidos(Aux.leerTexto());
+        this.setApellidos(fbasicas.leerTexto());
         System.out.print("Tipo de Documento : ");
-        this.setTipodocumento(Aux.leerTexto());
+        this.setTipodocumento(fbasicas.leerTexto());
         System.out.print("Numero de Documento : ");
-        this.setNumdocumento(Aux.leerTexto());
+        this.setNumdocumento(fbasicas.leerTexto());
         System.out.print("Correo : ");
-        this.setCorreo(Aux.leerTexto());
+        this.setCorreo(fbasicas.leerTexto());
         System.out.print("Comisión : ");
-        this.setComision(Aux.leerDecimalPositivo());
+        this.setComision(fbasicas.leerDecimalPositivo());
         System.out.print("Estado : ");
-        this.setEstado(Aux.leerTexto());
+        this.setEstado(fbasicas.leerTexto());
         System.out.println();
 
         String consulta = "call actualizarvendedor("
@@ -248,7 +248,7 @@ public class CVendedor {
         CVendedor f = new CVendedor();
         conector c = new conector();
         System.out.println("Ingrese el ID del vendedor");
-        int ID = Aux.leerEnteroPositivo();
+        int ID = fbasicas.leerEnteroPositivo();
         data = c.ejecutarProcedimientoConDatos("call vrecuperarID(" + ID + ")");
         for (List<String> dato: data ) {
             f.setIdvendedor(Integer.parseInt(dato.get(0)));
@@ -267,9 +267,9 @@ public class CVendedor {
         conector c = new conector();
         System.out.println("Ingrese la Clave del vendedor");
         System.out.print("tipo de documento: ");
-        String tipodoc = Aux.leerTexto();
+        String tipodoc = fbasicas.leerTexto();
         System.out.print("número de documento: ");
-        String numdoc = Aux.leerTexto();
+        String numdoc = fbasicas.leerTexto();
         System.out.println();
         data = c.ejecutarProcedimientoConDatos("call vrecuperarClave('" + tipodoc + "','" + numdoc + "')");
         for (List<String> dato: data ) {
