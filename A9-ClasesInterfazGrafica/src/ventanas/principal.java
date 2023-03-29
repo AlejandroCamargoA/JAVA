@@ -32,15 +32,15 @@ public class principal extends JFrame {
 
         jbtnFlores = new JButton();
         jbtnFlores.setText("Gest. Flores");
-        jbtnFlores.setBounds(50, 45, 70, 45);
+        jbtnFlores.setBounds(50, 50, 150, 50);
 
         jbtnClientes = new JButton();
-        jbtnClientes.setText("Gest. Flores");
-        jbtnClientes.setBounds(150, 45, 70, 45);
+        jbtnClientes.setText("Gest. Clientes");
+        jbtnClientes.setBounds(220, 50, 150, 50);
 
         jbtnVendedores = new JButton();
-        jbtnVendedores.setText("Gest. Flores");
-        jbtnVendedores.setBounds(240, 45, 70, 45);
+        jbtnVendedores.setText("Gest. Vendedores");
+        jbtnVendedores.setBounds(390, 50, 150, 50);
 
 
         panel.add(jlbTitulo);

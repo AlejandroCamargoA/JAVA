@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 public class crudCliente extends JFrame {
-
+    private CCliente cliente;
     private JPanel panel;
     private JLabel jlbIdCliente;
     private JTextField jtfNombres;
@@ -38,17 +38,28 @@ public class crudCliente extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
 
+        cliente = new CCliente();
         inicializarComponentes();
         cargarEventos();
     }
 
+    public crudCliente(CCliente pCliente){
+        cliente = pCliente;
+        setSize(650, 650);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
+
+        inicializarComponentes();
+        cargarEventos();
+    }
     public void inicializarComponentes(){
         panel = new JPanel();
         panel.setLayout(null);
 
 
         jlbIdCliente = new JLabel();
-        jlbIdCliente.setText("...");
+        jlbIdCliente.setText(cliente.getIdCliente()+"");
         jlbIdCliente.setBounds(30,30, 150,45);
 
         jlbNombres = new JLabel();
@@ -56,7 +67,7 @@ public class crudCliente extends JFrame {
         jlbNombres.setBounds(30,90, 150,45);
 
         jtfNombres = new JTextField();
-        jtfNombres.setText("Nombres");
+        jtfNombres.setText(cliente.getNombres()+"");
         jtfNombres.setBounds(180,90, 150,45);
 
         jlbApellidos = new JLabel();
@@ -64,7 +75,7 @@ public class crudCliente extends JFrame {
         jlbApellidos.setBounds(30,140, 150,45);
 
         jtfApellidos = new JTextField();
-        jtfApellidos.setText("Apellidos");
+        jtfApellidos.setText(cliente.getApellidos()+"");
         jtfApellidos.setBounds(180,140, 150,45);
 
         jlbTipoDocumento = new JLabel();
@@ -72,7 +83,7 @@ public class crudCliente extends JFrame {
         jlbTipoDocumento.setBounds(30,190, 150,45);
 
         jtfTipoDocumento = new JTextField();
-        jtfTipoDocumento.setText("Tipo de Documento");
+        jtfTipoDocumento.setText(cliente.getTipoDocumento()+"");
         jtfTipoDocumento.setBounds(180, 190, 150,45);
 
         jlbNumDocumento = new JLabel();
@@ -80,7 +91,7 @@ public class crudCliente extends JFrame {
         jlbNumDocumento.setBounds(30,240, 150,45);
 
         jtfNumDocumento = new JTextField();
-        jtfNumDocumento.setText("Numero de Documento");
+        jtfNumDocumento.setText(cliente.getNumDocumento()+"");
         jtfNumDocumento.setBounds(180,240, 150,45);
 
         jlbCorreo = new JLabel();
@@ -88,7 +99,7 @@ public class crudCliente extends JFrame {
         jlbCorreo.setBounds(30,290, 150,45);
 
         jtfCorreo = new JTextField();
-        jtfCorreo.setText("Correo");
+        jtfCorreo.setText(cliente.getCorreo()+"");
         jtfCorreo.setBounds(180,290, 150,45);
 
         jlbTipo = new JLabel();
@@ -96,7 +107,7 @@ public class crudCliente extends JFrame {
         jlbTipo.setBounds(30,340, 150,45);
 
         jtfTipo = new JTextField();
-        jtfTipo.setText("Tipo");
+        jtfTipo.setText(cliente.getTipo()+"");
         jtfTipo.setBounds(180,340, 150,45);
 
         jlbEstado = new JLabel();
@@ -104,7 +115,7 @@ public class crudCliente extends JFrame {
         jlbEstado.setBounds(30,390, 150,45);
 
         jtfEstado = new JTextField();
-        jtfEstado.setText("Estado");
+        jtfEstado.setText(cliente.getEstado()+"");
         jtfEstado.setBounds(180,390, 150,45);
 
         jbtGuardar.setText("Guardar");
@@ -143,17 +154,53 @@ public class crudCliente extends JFrame {
         jbtGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CCliente c = new CCliente();
-                c.setNombres(jtfNombres.getText());
-                c.setApellidos(jtfApellidos.getText());
-                c.setTipoDocumento(jtfTipoDocumento.getText());
-                c.setNumDocumento(jtfNumDocumento.getText());
-                c.setCorreo(jtfCorreo.getText());
-                c.setTipo(jtfTipo.getText());
-                c.setEstado(jtfEstado.getText());
-                c.save();
+                if(cliente.getIdCliente() == 0){
+                    cliente.setNombres(jtfNombres.getText());
+                    cliente.setApellidos(jtfApellidos.getText());
+                    cliente.setTipoDocumento(jtfTipoDocumento.getText());
+                    cliente.setNumDocumento(jtfNumDocumento.getText());
+                    cliente.setCorreo(jtfCorreo.getText());
+                    cliente.setTipo(jtfTipo.getText());
+                    cliente.setEstado(jtfEstado.getText());
+                    cliente.save();
+                }else{
+                    cliente.setIdCliente(Integer.parseInt(jlbIdCliente.getText()));
+                    cliente.setNombres(jtfNombres.getText());
+                    cliente.setApellidos(jtfApellidos.getText());
+                    cliente.setTipoDocumento(jtfTipoDocumento.getText());
+                    cliente.setNumDocumento(jtfNumDocumento.getText());
+                    cliente.setCorreo(jtfCorreo.getText());
+                    cliente.setTipo(jtfTipo.getText());
+                    cliente.setEstado(jtfEstado.getText());
+                    cliente.update();
+                }
+            }
+        });
+        jbtActualizar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListarClientes cf = new ListarClientes();
+                cf.setVisible(true);
+                cf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                cf.setTitle("Tabla Flores");
+                dispose();
+            }
+        });
+        jbtLimpiar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cliente.setIdCliente(Integer.parseInt(jlbIdCliente.getText()));
+                cliente.setNombres(jtfNombres.getText());
+                cliente.setApellidos(jtfApellidos.getText());
+                cliente.setTipoDocumento(jtfTipoDocumento.getText());
+                cliente.setNumDocumento(jtfNumDocumento.getText());
+                cliente.setCorreo(jtfCorreo.getText());
+                cliente.setTipo(jtfTipo.getText());
+                cliente.setEstado(jtfEstado.getText());
+                cliente.eliminar();
             }
         });
     }
+
 
 }

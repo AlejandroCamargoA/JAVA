@@ -1,6 +1,7 @@
 package ventanas;
 
-import Clases.CFlor;
+import Clases.CCliente;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -11,13 +12,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class ListarFlores extends JFrame {
+public class ListarClientes extends JFrame{
     private JPanel panel;
     private JTable tablaFlores;
     private DefaultTableModel modeloTablaFlores;
     private JScrollPane despl;
     private JButton jbtnCerrar;
-    public ListarFlores(){
+    public ListarClientes(){
         setSize(650, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -32,12 +33,12 @@ public class ListarFlores extends JFrame {
         modeloTablaFlores = new DefaultTableModel();
 
         modeloTablaFlores.addColumn("id");
-        modeloTablaFlores.addColumn("Nombre");
-        modeloTablaFlores.addColumn("Aroma");
-        modeloTablaFlores.addColumn("Color");
-        modeloTablaFlores.addColumn("Precio");
-        modeloTablaFlores.addColumn("Stock");
-        modeloTablaFlores.addColumn("F. Creacion");
+        modeloTablaFlores.addColumn("Nombres");
+        modeloTablaFlores.addColumn("Apellidos");
+        modeloTablaFlores.addColumn("Tipo de Documentos");
+        modeloTablaFlores.addColumn("Numero de Documentos");
+        modeloTablaFlores.addColumn("Correo");
+        modeloTablaFlores.addColumn("Tipo");
         modeloTablaFlores.addColumn("Estado");
 
         tablaFlores = new JTable(modeloTablaFlores);
@@ -60,7 +61,7 @@ public class ListarFlores extends JFrame {
 
         this.getContentPane().add(panel);
 
-        final List<List<String>> datos = CFlor.mostrarFlores("");
+        final List<List<String>> datos = CCliente.mostrarClientes("");
         for (List<String> list : datos) {
             modeloTablaFlores.addRow(list.toArray());
         }
@@ -69,8 +70,8 @@ public class ListarFlores extends JFrame {
         jbtnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CFlor f = new CFlor();
-                crudFlor cf = new crudFlor(f);
+                CCliente f = new CCliente();
+                crudCliente cf = new crudCliente(f);
                 cf.setTitle("CRUD FLOR");
                 cf.setVisible(true);
                 dispose();
@@ -80,29 +81,20 @@ public class ListarFlores extends JFrame {
         tablaFlores.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e){
                 int fila = tablaFlores.rowAtPoint(e.getPoint());
-                SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                try {
-                    String f = tablaFlores.getValueAt(fila,6).toString();
-                    Date fecha = formato.parse(f);
-                    System.out.println(fecha);
-                }catch (Exception ex){
-                    System.out.println("Error: El formato del texto no es correcto");
-                    ex.printStackTrace();
-                }
 
-                CFlor f = new CFlor(
+                CCliente f = new CCliente(
                         tablaFlores.getValueAt(fila,1).toString(),
                         tablaFlores.getValueAt(fila,2).toString(),
                         tablaFlores.getValueAt(fila,3).toString(),
-                        Double.parseDouble(tablaFlores.getValueAt(fila,4).toString()),
-                        Integer.parseInt(tablaFlores.getValueAt(fila,5).toString()),
-                        new Date(),
+                        tablaFlores.getValueAt(fila,4).toString(),
+                        tablaFlores.getValueAt(fila,5).toString(),
+                        tablaFlores.getValueAt(fila,6).toString(),
                         tablaFlores.getValueAt(fila,7).toString()
                 );
-                f.setIdflor(Integer.parseInt(tablaFlores.getValueAt(fila,0).toString()));
-                crudFlor cf = new crudFlor(f);
+                f.setIdCliente(Integer.parseInt(tablaFlores.getValueAt(fila,0).toString()));
+                crudCliente cf = new crudCliente(f);
                 cf.setVisible(true);
-                cf.setTitle("CRUD FLOR");
+                cf.setTitle("CRUD CLIENTE");
                 dispose();
             }
         });

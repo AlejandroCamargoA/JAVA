@@ -2,6 +2,8 @@ package Clases;
 
 import conexion.conector;
 
+import java.util.List;
+
 public class CCliente {
     private int idCliente;
     private String nombres;
@@ -14,17 +16,16 @@ public class CCliente {
 
     public CCliente() {
         this.idCliente = 0;
-        this.nombres = null;
-        this.apellidos = null;
-        this.tipoDocumento = null;
-        this.numDocumento = null;
-        this.correo = null;
-        this.tipo = null;
-        this.estado = null;
+        this.nombres = "";
+        this.apellidos = "";
+        this.tipoDocumento = "";
+        this.numDocumento = "";
+        this.correo = "";
+        this.tipo = "";
+        this.estado = "";
     }
 
-    public CCliente(int idCliente, String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, String tipo, String estado) {
-        this.idCliente = idCliente;
+    public CCliente(String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, String tipo, String estado) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
@@ -108,7 +109,42 @@ public class CCliente {
                 + this.correo +"','"
                 + this.tipo +"','"
                 + this.estado + "')";
-        System.out.println(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
+    public void update(){
+        conector c = new conector();
+        String consulta = "call actualizarcliente("
+                + this.idCliente + ",'"
+                + this.nombres+"','"
+                + this.apellidos +"','"
+                + this.tipoDocumento +"','"
+                + this.numDocumento +"','"
+                + this.correo +"','"
+                + this.tipo +"','"
+                + this.estado + "')";
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
+    public static List<List<String>> mostrarClientes(String pIdCliente) {
+        List<List<String>> data = null;
+        try {
+            conector conexion = new conector();
+            String consulta = "";
+            if (pIdCliente.compareTo("") == 0) {
+                consulta = "call listarClientesActivos('activo');";
+            } else {
+                consulta = "select * from TFlor where idFlor = '" + pIdCliente + "';";
+            }
+            data = conexion.ejecutarProcedimientoConDatos(consulta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+    public void eliminar(){
+        conector c = new conector();
+        String consulta = "call eliminarcliente("
+                + this.idCliente + ")";
+        System.out.printf(consulta);
         c.ejecutarProcedimientoSinDatos(consulta);
     }
 }

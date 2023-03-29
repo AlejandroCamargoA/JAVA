@@ -1,5 +1,6 @@
 package ventanas;
 
+import Clases.CCliente;
 import Clases.CVendedor;
 
 import javax.swing.*;
@@ -7,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class crudVendedor extends JFrame {
-
+    private CVendedor vendedor;
     private JPanel panel;
     private JLabel jlbIdVendedor;
     private JTextField jtfNombres;
@@ -41,13 +42,22 @@ public class crudVendedor extends JFrame {
         cargarEventos();
 
     }
+    public crudVendedor(CVendedor pVendedor){
+        vendedor = pVendedor;
+        setSize(650, 650);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
 
+        inicializarComponentes();
+        cargarEventos();
+    }
     public void inicializarComponentes(){
         panel = new JPanel();
         panel.setLayout(null);
 
         jlbIdVendedor = new JLabel();
-        jlbIdVendedor.setText("...");
+        jlbIdVendedor.setText(vendedor.getIdVendedor()+"");
         jlbIdVendedor.setBounds(30,30, 150,45);
 
         jlbNombres = new JLabel();
@@ -55,7 +65,7 @@ public class crudVendedor extends JFrame {
         jlbNombres.setBounds(30,90, 150,45);
 
         jtfNombres = new JTextField();
-        jtfNombres.setText("Nombres");
+        jtfNombres.setText(vendedor.getNombres()+"");
         jtfNombres.setBounds(180,90, 150,45);
 
         jlbApellidos = new JLabel();
@@ -63,7 +73,7 @@ public class crudVendedor extends JFrame {
         jlbApellidos.setBounds(30,140, 150,45);
 
         jtfApellidos = new JTextField();
-        jtfApellidos.setText("Apellidos");
+        jtfApellidos.setText(vendedor.getApellidos()+"");
         jtfApellidos.setBounds(180,140, 150,45);
 
         jlbTipoDocumento = new JLabel();
@@ -71,7 +81,7 @@ public class crudVendedor extends JFrame {
         jlbTipoDocumento.setBounds(30,190, 150,45);
 
         jtfTipoDocumento = new JTextField();
-        jtfTipoDocumento.setText("Tipo de Documento");
+        jtfTipoDocumento.setText(vendedor.getTipoDocumento()+"");
         jtfTipoDocumento.setBounds(180, 190, 150,45);
 
         jlbNumDocumento = new JLabel();
@@ -79,7 +89,7 @@ public class crudVendedor extends JFrame {
         jlbNumDocumento.setBounds(30,240, 150,45);
 
         jtfNumDocumento = new JTextField();
-        jtfNumDocumento.setText("Numero de Documento");
+        jtfNumDocumento.setText(vendedor.getNumDocumento()+"");
         jtfNumDocumento.setBounds(180,240, 150,45);
 
         jlbCorreo = new JLabel();
@@ -87,7 +97,7 @@ public class crudVendedor extends JFrame {
         jlbCorreo.setBounds(30,290, 150,45);
 
         jtfCorreo = new JTextField();
-        jtfCorreo.setText("Correo");
+        jtfCorreo.setText(vendedor.getCorreo()+"");
         jtfCorreo.setBounds(180,290, 150,45);
 
         jlbComision = new JLabel();
@@ -95,7 +105,7 @@ public class crudVendedor extends JFrame {
         jlbComision.setBounds(30,340, 150,45);
 
         jtfComision = new JTextField();
-        jtfComision.setText("Comision");
+        jtfComision.setText(vendedor.getComision()+"");
         jtfComision.setBounds(180,340, 150,45);
 
         jlbEstado = new JLabel();
@@ -103,7 +113,7 @@ public class crudVendedor extends JFrame {
         jlbEstado.setBounds(30,390, 150,45);
 
         jtfEstado = new JTextField();
-        jtfEstado.setText("Estado");
+        jtfEstado.setText(vendedor.getEstado()+"");
         jtfEstado.setBounds(180,390, 150,45);
 
         jbtGuardar.setText("Guardar");

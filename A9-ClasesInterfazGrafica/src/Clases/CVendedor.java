@@ -2,6 +2,8 @@ package Clases;
 
 import conexion.conector;
 
+import java.util.List;
+
 public class CVendedor {
 
     private int idVendedor;
@@ -15,17 +17,16 @@ public class CVendedor {
 
     public CVendedor() {
         this.idVendedor = 0;
-        this.nombres = null;
-        this.apellidos = null;
-        this.tipoDocumento = null;
-        this.numDocumento = null;
-        this.correo = null;
+        this.nombres = "";
+        this.apellidos = "";
+        this.tipoDocumento = "";
+        this.numDocumento = "";
+        this.correo = "";
         this.comision = 0;
-        this.estado = null;
+        this.estado = "";
     }
 
-    public CVendedor(int idVendedor, String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, int comision, String estado) {
-        this.idVendedor = idVendedor;
+    public CVendedor(String nombres, String apellidos, String tipoDocumento, String numDocumento, String correo, int comision, String estado) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
@@ -104,11 +105,48 @@ public class CVendedor {
         String consulta = "call crearvendedor('"
                 + this.nombres+"','"
                 + this.apellidos +"','"
+                + this.tipoDocumento +"','"
+                + this.numDocumento +"','"
                 + this.correo +"',"
                 + this.comision +",'"
                 + this.estado + "')";
         System.out.println(consulta);
         c.ejecutarProcedimientoSinDatos(consulta);
     }
-
+    public void update(){
+        conector c = new conector();
+        String consulta = "call actualizarvendedor("
+                + this.idVendedor + ",'"
+                + this.nombres+"','"
+                + this.apellidos +"','"
+                + this.tipoDocumento +"','"
+                + this.numDocumento +"','"
+                + this.correo +"',"
+                + this.comision +",'"
+                + this.estado + "')";
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
+    public static List<List<String>> mostrarVendedores(String pIdVendedor) {
+        List<List<String>> data = null;
+        try {
+            conector conexion = new conector();
+            String consulta = "";
+            if (pIdVendedor.compareTo("") == 0) {
+                consulta = "call listarClientesActivos('activo');";
+            } else {
+                consulta = "select * from TFlor where idFlor = '" + pIdVendedor + "';";
+            }
+            data = conexion.ejecutarProcedimientoConDatos(consulta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+    public void eliminar(){
+        conector c = new conector();
+        String consulta = "call eliminarvendedorNuevo("
+                + this.idVendedor + ")";
+        System.out.printf(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
 }

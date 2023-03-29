@@ -1,6 +1,7 @@
 package Clases;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 import conexion.conector;
 
@@ -19,12 +20,12 @@ public class CFlor {
     // M. contructores
     public CFlor(){
         this.idflor = 0;
-        this.nombre=null;
-        this.aroma=null;
-        this.color=null;
-        this.precio=0;
-        this.estado = null;
-        this.fcreacion = null;
+        this.nombre= "";
+        this.aroma= "";
+        this.color= "";
+        this.precio= 0;
+        this.estado = "";
+        this.fcreacion = new Date();
         this.stock = 0;
     }
 
@@ -154,7 +155,30 @@ public class CFlor {
                 + this.stock + ","
                 + "'2023-12-15 12:45:15'" + ", '"
                 + this.estado + "')";
-        System.out.println(consulta);
-        //c.ejecutarProcedimientoSinDatos(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
     }
+    public void eliminar(){
+        conector c = new conector();
+        String consulta = "call eliminarFlor("
+                + this.idflor + ")";
+        System.out.printf(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
+    }
+    public static List<List<String>> mostrarFlores(String pIdFlor) {
+        List<List<String>> data = null;
+        try {
+            conector conexion = new conector();
+            String consulta = "";
+            if (pIdFlor.compareTo("") == 0) {
+                consulta = "call listarFloresActivas('activo');";
+            } else {
+                consulta = "select * from TFlor where idFlor = '" + pIdFlor + "';";
+            }
+            data = conexion.ejecutarProcedimientoConDatos(consulta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 }
